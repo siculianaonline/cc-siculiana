@@ -45,7 +45,6 @@ def genera_feed():
         if poster_url:
             img_tags = f"""
       <enclosure url="{escape(poster_url)}" type="image/jpeg" length="0" />
-      <media:content url="{escape(poster_url)}" medium="image" />
       <media:thumbnail url="{escape(poster_url)}" />"""
 
         item = f"""    <item>
