@@ -26,19 +26,22 @@ def genera_feed():
 
     items_xml = []
     for elemento in dati.get("aLives", []):
-        titolo = escape(elemento.get("titolo", "").strip())
+        titolo_originale = elemento.get("titolo", "").strip()
+        data_testo = elemento.get("inizio", "").strip()
         link = BASE_SITE + elemento.get("uri", "")
-        data_pub = parse_data_italiana(elemento.get("inizio", ""))
+        data_pub = parse_data_italiana(data_testo)
         pub_date_rfc822 = format_datetime(data_pub)
         durata = elemento.get("durata", "")
         categoria = escape(elemento.get("catLabel", ""))
         guid = elemento.get("id", link)
 
+        titolo_nuovo = escape(f"VIDEO - CONSIGLIO COMUNALE DEL {data_testo.upper()}")
+
         poster_path = elemento.get("validPoster", "")
         poster_url = BASE_SITE + "/" + poster_path.lstrip("/") if poster_path else ""
 
-        img_html = f'<img src="{poster_url}" alt="{titolo}" /><br/>' if poster_url else ""
-        descrizione_testo = f"{categoria} - Durata: {durata}"
+        img_html = f'<img src="{poster_url}" alt="{escape(titolo_originale)}" /><br/>' if poster_url else ""
+        descrizione_testo = f"{titolo_originale} - Durata: {durata}"
         descrizione_html = f"{img_html}{escape(descrizione_testo)}"
 
         img_tags = ""
@@ -48,7 +51,7 @@ def genera_feed():
       <media:thumbnail url="{escape(poster_url)}" />"""
 
         item = f"""    <item>
-      <title>{titolo}</title>
+      <title>{titolo_nuovo}</title>
       <link>{escape(link)}</link>
       <guid isPermaLink="false">{guid}</guid>
       <pubDate>{pub_date_rfc822}</pubDate>
