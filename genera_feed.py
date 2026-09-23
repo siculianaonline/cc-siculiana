@@ -34,10 +34,12 @@ def genera_feed():
         categoria = escape(elemento.get("catLabel", ""))
         guid = elemento.get("id", link)
 
-        descrizione = escape(f"{categoria} - Durata: {durata}")
-
         poster_path = elemento.get("validPoster", "")
         poster_url = BASE_SITE + "/" + poster_path.lstrip("/") if poster_path else ""
+
+        img_html = f'<img src="{poster_url}" alt="{titolo}" /><br/>' if poster_url else ""
+        descrizione_testo = f"{categoria} - Durata: {durata}"
+        descrizione_html = f"{img_html}{escape(descrizione_testo)}"
 
         img_tags = ""
         if poster_url:
@@ -51,12 +53,13 @@ def genera_feed():
       <link>{escape(link)}</link>
       <guid isPermaLink="false">{guid}</guid>
       <pubDate>{pub_date_rfc822}</pubDate>
-      <description>{descrizione}</description>{img_tags}
+      <description>{escape(descrizione_testo)}</description>
+      <content:encoded><![CDATA[{descrizione_html}]]></content:encoded>{img_tags}
     </item>"""
         items_xml.append(item)
 
     rss = f"""<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Consiglio Comunale Siculiana - CiviCam</title>
     <link>{BASE_SITE}</link>
