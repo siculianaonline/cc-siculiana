@@ -15,7 +15,6 @@ MESI_IT = {
 }
 
 def parse_data_italiana(testo):
-    # esempio: "16 settembre 2026"
     giorno, mese_nome, anno = testo.strip().split(" ")
     mese = MESI_IT[mese_nome.lower()]
     return datetime(int(anno), mese, int(giorno))
@@ -37,17 +36,27 @@ def genera_feed():
 
         descrizione = escape(f"{categoria} - Durata: {durata}")
 
+        poster_path = elemento.get("validPoster", "")
+        poster_url = BASE_SITE + "/" + poster_path.lstrip("/") if poster_path else ""
+
+        img_tags = ""
+        if poster_url:
+            img_tags = f"""
+      <enclosure url="{escape(poster_url)}" type="image/jpeg" length="0" />
+      <media:content url="{escape(poster_url)}" medium="image" />
+      <media:thumbnail url="{escape(poster_url)}" />"""
+
         item = f"""    <item>
       <title>{titolo}</title>
       <link>{escape(link)}</link>
       <guid isPermaLink="false">{guid}</guid>
       <pubDate>{pub_date_rfc822}</pubDate>
-      <description>{descrizione}</description>
+      <description>{descrizione}</description>{img_tags}
     </item>"""
         items_xml.append(item)
 
     rss = f"""<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Consiglio Comunale Siculiana - CiviCam</title>
     <link>{BASE_SITE}</link>
