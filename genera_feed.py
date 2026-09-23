@@ -6,7 +6,10 @@ from xml.sax.saxutils import escape
 
 URL_JSON = "https://siculiana.civicam.it/ajax.php?azione=mediaElementsData&p=1&orderBy=0&idLiveEscluso=0"
 BASE_SITE = "https://siculiana.civicam.it"
+HOME_PORTALE = "https://siculiana.civicam.it/?c=1"
 OUTPUT_FILE = "feed.xml"
+
+DESCRIZIONE_GENERICA = "Video integrale della seduta del Consiglio Comunale di Siculiana, disponibile su CiviCam."
 
 MESI_IT = {
     "gennaio": 1, "febbraio": 2, "marzo": 3, "aprile": 4,
@@ -32,7 +35,6 @@ def genera_feed():
         data_pub = parse_data_italiana(data_testo)
         pub_date_rfc822 = format_datetime(data_pub)
         durata = elemento.get("durata", "")
-        categoria = escape(elemento.get("catLabel", ""))
         guid = elemento.get("id", link)
 
         titolo_nuovo = escape(f"VIDEO - CONSIGLIO COMUNALE DEL {data_testo.upper()}")
@@ -41,8 +43,13 @@ def genera_feed():
         poster_url = BASE_SITE + "/" + poster_path.lstrip("/") if poster_path else ""
 
         img_html = f'<img src="{poster_url}" alt="{escape(titolo_originale)}" /><br/>' if poster_url else ""
-        descrizione_testo = f"{titolo_originale} - Durata: {durata}"
-        descrizione_html = f"{img_html}{escape(descrizione_testo)}"
+
+        descrizione_html = (
+            f"{img_html}"
+            f"<p>{escape(DESCRIZIONE_GENERICA)}</p>"
+            f'<p><a href="{escape(link)}">Guarda il video integrale</a></p>'
+            f'<p><a href="{escape(HOME_PORTALE)}">Vai al portale CiviCam di Siculiana</a></p>'
+        )
 
         img_tags = ""
         if poster_url:
@@ -55,7 +62,7 @@ def genera_feed():
       <link>{escape(link)}</link>
       <guid isPermaLink="false">{guid}</guid>
       <pubDate>{pub_date_rfc822}</pubDate>
-      <description>{escape(descrizione_testo)}</description>
+      <description>{escape(DESCRIZIONE_GENERICA)}</description>
       <content:encoded><![CDATA[{descrizione_html}]]></content:encoded>{img_tags}
     </item>"""
         items_xml.append(item)
