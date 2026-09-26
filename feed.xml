@@ -6,6 +6,16 @@
     <description>Feed generato automaticamente dai contenuti CiviCam di Siculiana</description>
     <language>it-it</language>
     <item>
+      <title>VIDEO - CONSIGLIO COMUNALE DEL 25 SETTEMBRE 2026</title>
+      <link>https://siculiana.civicam.it/live14-Convocazione-Consiglio-Comunale-in-Seduta-Pubblica-e-sessione-ordinaria.html</link>
+      <guid isPermaLink="false">14</guid>
+      <pubDate>Fri, 25 Sep 2026 00:00:00 -0000</pubDate>
+      <description>Video integrale della seduta del Consiglio Comunale di Siculiana, disponibile su CiviCam.</description>
+      <content:encoded><![CDATA[<img src="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" alt="Convocazione Consiglio Comunale in Seduta Pubblica e sessione ordinaria" /><br/><p>Video integrale della seduta del Consiglio Comunale di Siculiana, disponibile su CiviCam.</p><p><a href="https://siculiana.civicam.it/live14-Convocazione-Consiglio-Comunale-in-Seduta-Pubblica-e-sessione-ordinaria.html">Guarda il video integrale</a></p><p><a href="https://siculiana.civicam.it/?c=1">Vai al portale CiviCam di Siculiana</a></p>]]></content:encoded>
+      <enclosure url="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" type="image/jpeg" length="0" />
+      <media:thumbnail url="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" />
+    </item>
+    <item>
       <title>VIDEO - CONSIGLIO COMUNALE DEL 16 SETTEMBRE 2026</title>
       <link>https://siculiana.civicam.it/live13-Convocazione-Consiglio-Comunale-in-Seduta-Pubblica-e-sessione-ordinaria.html</link>
       <guid isPermaLink="false">13</guid>
@@ -112,16 +122,6 @@
       <pubDate>Thu, 27 Nov 2025 00:00:00 -0000</pubDate>
       <description>Video integrale della seduta del Consiglio Comunale di Siculiana, disponibile su CiviCam.</description>
       <content:encoded><![CDATA[<img src="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" alt="Convocazione Consiglio Comunale in Sessione d'Urgenza e Seduta Pubblica" /><br/><p>Video integrale della seduta del Consiglio Comunale di Siculiana, disponibile su CiviCam.</p><p><a href="https://siculiana.civicam.it/live3-Convocazione-Consiglio-Comunale-in-Sessione-d-Urgenza-e-Seduta-Pubblica.html">Guarda il video integrale</a></p><p><a href="https://siculiana.civicam.it/?c=1">Vai al portale CiviCam di Siculiana</a></p>]]></content:encoded>
-      <enclosure url="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" type="image/jpeg" length="0" />
-      <media:thumbnail url="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" />
-    </item>
-    <item>
-      <title>VIDEO - CONSIGLIO COMUNALE DEL 06 NOVEMBRE 2025</title>
-      <link>https://siculiana.civicam.it/live1-Convocazione-Consiglio-Comunale-in-Sessione-Ordinaria-e-Seduta-Pubblica.html</link>
-      <guid isPermaLink="false">1</guid>
-      <pubDate>Thu, 06 Nov 2025 00:00:00 -0000</pubDate>
-      <description>Video integrale della seduta del Consiglio Comunale di Siculiana, disponibile su CiviCam.</description>
-      <content:encoded><![CDATA[<img src="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" alt="Convocazione Consiglio Comunale in Sessione Ordinaria e Seduta Pubblica" /><br/><p>Video integrale della seduta del Consiglio Comunale di Siculiana, disponibile su CiviCam.</p><p><a href="https://siculiana.civicam.it/live1-Convocazione-Consiglio-Comunale-in-Sessione-Ordinaria-e-Seduta-Pubblica.html">Guarda il video integrale</a></p><p><a href="https://siculiana.civicam.it/?c=1">Vai al portale CiviCam di Siculiana</a></p>]]></content:encoded>
       <enclosure url="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" type="image/jpeg" length="0" />
       <media:thumbnail url="https://siculiana.civicam.it/lib/ente_283/images/default_poster.jpg?0" />
     </item>
